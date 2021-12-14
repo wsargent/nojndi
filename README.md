@@ -2,7 +2,7 @@
 
 This is a simple proof of concept agent that disables JNDI lookups globally across the JVM.
 
-This is useful for mitigating the Log4Shell attack, but is also applicable to any situation where you're 
+This is useful for mitigating the Log4Shell attack, but is also applicable to any situation that may be doing unsafe `ctx.lookup` calls on unvalidated input.
 
 ## How It Works
 
