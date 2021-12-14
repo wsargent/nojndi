@@ -44,7 +44,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>nojndi.Main</mainClass>
+                            <mainClass>com.tersesystems.nojndi.Main</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

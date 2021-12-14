@@ -15,9 +15,9 @@ public class NoJndiAgent {
     }
 
     public static class NoPermissionsInitialContextFactory implements InitialContextFactory {
-      @Override
-      public Context getInitialContext(Hashtable<?, ?> environment) throws NamingException {
-        throw new NoPermissionException("JNDI is disabled!");
-      }
+        @Override
+        public Context getInitialContext(Hashtable<?, ?> environment) throws NamingException {
+            throw new NoPermissionException("JNDI is disabled!");
+        }
     }
 }
