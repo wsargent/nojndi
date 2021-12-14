@@ -7,7 +7,7 @@ This is useful for mitigating the Log4Shell attack, but is also applicable to an
 ## Running
 
 ```
-java -javaagent:nojndi-agent-0.1.0-SNAPSHOT.jar MyApp
+java -javaagent:nojndi-agent-0.1.0.jar MyApp
 ```
 
 ## How It Works
@@ -103,7 +103,7 @@ public class NamingManager {
 }
 ```
 
-From this point, it returns the `NoPermissionsInitialContextFactory` which nixes the operation.
+From this point, it goes to the agent installed `NoPermissionsInitialContextFactory` which nixes the operation.
 
 ```java
 public class NoJndiAgent {
@@ -111,7 +111,7 @@ public class NoJndiAgent {
     }
 
     public static void premain(String arg, Instrumentation inst) throws Exception {
-        NamingManager.setInitialContextFactoryBuilder(environment -> new NoPermissionsInitialContextFactory());
+        NamingManager.setInitialContextFactoryBuilder(env -> new NoPermissionsInitialContextFactory());
     }
 
     public static class NoPermissionsInitialContextFactory implements InitialContextFactory {

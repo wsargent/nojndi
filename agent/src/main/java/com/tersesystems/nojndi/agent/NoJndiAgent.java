@@ -11,7 +11,7 @@ public class NoJndiAgent {
     }
 
     public static void premain(String arg, Instrumentation inst) throws Exception {
-        NamingManager.setInitialContextFactoryBuilder(environment -> new NoPermissionsInitialContextFactory());
+        NamingManager.setInitialContextFactoryBuilder(env -> new NoPermissionsInitialContextFactory());
     }
 
     public static class NoPermissionsInitialContextFactory implements InitialContextFactory {
