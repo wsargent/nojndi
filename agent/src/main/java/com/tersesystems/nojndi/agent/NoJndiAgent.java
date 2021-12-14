@@ -11,10 +11,10 @@ public class NoJndiAgent {
     }
 
     public static void premain(String arg, Instrumentation inst) throws Exception {
-        NamingManager.setInitialContextFactoryBuilder(environment -> new MyInitialContextFactory());
+        NamingManager.setInitialContextFactoryBuilder(environment -> new NoPermissionsInitialContextFactory());
     }
 
-    public static class MyInitialContextFactory implements InitialContextFactory {
+    public static class NoPermissionsInitialContextFactory implements InitialContextFactory {
       @Override
       public Context getInitialContext(Hashtable<?, ?> environment) throws NamingException {
         throw new NoPermissionException("JNDI is disabled!");
