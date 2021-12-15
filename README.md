@@ -31,7 +31,6 @@ public class Main {
             // Happens on normal circumstances...
             System.err.println("ATTACK SUCCEEDED: JNDI lookup call!");
         } catch (NamingException e) {
-            // Happens on agent redefinition of java.lang.System
             System.out.println("ATTACK FAILED: " + e.getMessage());
         } catch (Exception e) {
             System.err.println("PROGRAM FAILED: " + e.getMessage());
